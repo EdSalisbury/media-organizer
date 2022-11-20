@@ -10,6 +10,9 @@ packages = [{include = "media_organizer"}]
 python = "^3.11"
 
 
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^2.20.0"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
