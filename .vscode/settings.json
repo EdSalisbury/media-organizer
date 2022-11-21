@@ -1,3 +1,5 @@
 {
-  "python.formatting.provider": "black"
+  "python.formatting.provider": "black",
+  "prettier.tabWidth": 4,
+  "vetur.format.options.tabSize": 4
 }
