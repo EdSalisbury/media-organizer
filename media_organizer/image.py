@@ -23,11 +23,15 @@ class Image:
         return {TAGS.get(key, key): value for key, value in info.items()}
 
     def get_creation_date(self):
-        image = PILImage.open(self.filename)
-        exifdata = image.getexif()
-        ifd_info = self.get_exif_ifd(exifdata)
-        creation_date_time = ifd_info.get("DateTimeOriginal")
+        try:
+            image = PILImage.open(self.filename)
+            exifdata = image.getexif()
+            ifd_info = self.get_exif_ifd(exifdata)
+            creation_date_time = ifd_info.get("DateTimeOriginal")
 
-        if creation_date_time:
-            return creation_date_time.split(" ")[0].replace(":", "-")
+            if creation_date_time:
+                return creation_date_time.split(" ")[0].replace(":", "-")
+        except:
+            return "0000-00-00"
+
         return "0000-00-00"
